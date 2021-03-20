@@ -1,6 +1,6 @@
-from tkinter import Tk, Menu, Label
+from tkinter import Tk, Menu, Label, Button, Entry
 from tkinter.ttk import Treeview
-import Cadastrar
+import Cadastrar, Atualizar
 
 
 # Classe principal
@@ -10,6 +10,8 @@ class GerenciadorTarefas:
         self.configurarJanela()
         self.criarMenu()
         self.criarLabel()
+        self.criarBotões()
+        self.criarEntries()
         self.criarTabelaTarefas()
         self.janela.mainloop()
     
@@ -29,6 +31,11 @@ class GerenciadorTarefas:
         self.menu.add_command(label='cadastrar', command=Cadastrar.Cadastrar)
         # -------------------------------------------------------------------------
 
+        # ----------- Menu de atuaçização -----------------------------------------
+        self.atualizar = Menu(self.menu)
+        self.menu.add_command(label='Atualizar', command=Atualizar.Atualizar)
+        # -------------------------------------------------------------------------
+
         # ========== Fim do menu principal ========================================
         self.janela.config(menu=self.menu)
     
@@ -37,6 +44,19 @@ class GerenciadorTarefas:
         self.labelPrincipal = Label(self.janela, text='LISTA DE TAREFAS PENDENTES', fg='red', 
                                                 font=('Arial, bold', 14))
         self.labelPrincipal.place(relx=0.3, rely=0.05)
+
+    # Criando botões
+    def criarBotões(self):
+        self.btnExcluir = Button(self.janela, text='excluir', font=('Arial bold', 12))
+        self.btnExcluir.place(relx=0.04, rely=0.16, relwidth=0.15, relheight=0.08)
+
+        self.btnPesquisar = Button(self.janela, text='pesquisar', font=('Arial bold', 12))
+        self.btnPesquisar.place(relx=0.25, rely=0.16, relwidth=0.15, relheight=0.08)
+    
+    # Criando entries
+    def criarEntries(self):
+        self.entryPesquisa = Entry(self.janela)
+        self.entryPesquisa.place(relx=0.43, rely=0.16, relheight=0.08, relwidth=0.3)
 
     # Criando a tabela de tarefas 
     def criarTabelaTarefas(self):
@@ -57,7 +77,7 @@ class GerenciadorTarefas:
         self.tabela.column('#4', width=100)
         self.tabela.column('#5', width=100)
 
-        self.tabela.place(relx=0.005, rely=0.2, relwidth=0.99)
+        self.tabela.place(relx=0.005, rely=0.3, relwidth=0.99)
 
 
 GerenciadorTarefas()

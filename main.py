@@ -1,6 +1,6 @@
 from tkinter import Tk, Menu, Label, Button, Entry
 from tkinter.ttk import Treeview
-import Cadastrar, Atualizar
+import Cadastrar, Atualizar, Sobre
 
 
 # Classe principal
@@ -32,8 +32,8 @@ class GerenciadorTarefas:
         # -------------------------------------------------------------------------
 
         # ----------- Menu de atuaçização -----------------------------------------
-        self.atualizar = Menu(self.menu)
-        self.menu.add_command(label='Atualizar', command=Atualizar.Atualizar)
+        self.sobre = Menu(self.menu)
+        self.menu.add_command(label='Sobre', command=Sobre.Sobre)
         # -------------------------------------------------------------------------
 
         # ========== Fim do menu principal ========================================

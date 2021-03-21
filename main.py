@@ -53,6 +53,10 @@ class GerenciadorTarefas:
 
         self.btnPesquisar = Button(self.janela, text='pesquisar', font=('Arial bold', 12))
         self.btnPesquisar.place(relx=0.27, rely=0.16, relwidth=0.15, relheight=0.08)
+
+        self.btnAtualizar = Button(self.janela, text='atualizar tarefas', font=('Arial bold', 12), 
+                                    command=lambda:self.criarTabelaTarefas())
+        self.btnAtualizar.place(relx=0.76, rely=0.16, relwidth=0.2, relheight=0.08)
     
     # Criando entries
     def criarEntries(self):
@@ -80,7 +84,7 @@ class GerenciadorTarefas:
 
         self.tabela.place(relx=0.005, rely=0.3, relwidth=0.99, relheight=0.69)
 
-        #self.tabela.delete(*self.tabela.get_children())
+        self.tabela.delete(*self.tabela.get_children())
         for i in Conexão().consultar():
             self.tabela.insert('', 0, values=i)
 

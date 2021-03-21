@@ -51,7 +51,7 @@ class GerenciadorTarefas:
         self.btnExcluir.place(relx=0.04, rely=0.16, relwidth=0.15, relheight=0.08)
 
         self.btnPesquisar = Button(self.janela, text='pesquisar', font=('Arial bold', 12))
-        self.btnPesquisar.place(relx=0.25, rely=0.16, relwidth=0.15, relheight=0.08)
+        self.btnPesquisar.place(relx=0.27, rely=0.16, relwidth=0.15, relheight=0.08)
     
     # Criando entries
     def criarEntries(self):

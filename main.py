@@ -1,6 +1,7 @@
 from tkinter import Tk, Menu, Label, Button, Entry
 from tkinter.ttk import Treeview
 import Cadastrar, Atualizar, Sobre
+from CRUD import Conexão
 
 
 # Classe principal
@@ -15,7 +16,7 @@ class GerenciadorTarefas:
         self.criarTabelaTarefas()
         self.janela.mainloop()
     
-    # configurando janel
+    # configurando janela
     def configurarJanela(self):
         self.janela.title('Gerenciador de Tarefas')
         self.janela.geometry('700x400+300+100')
@@ -77,7 +78,12 @@ class GerenciadorTarefas:
         self.tabela.column('#4', width=100)
         self.tabela.column('#5', width=100)
 
-        self.tabela.place(relx=0.005, rely=0.3, relwidth=0.99)
+        self.tabela.place(relx=0.005, rely=0.3, relwidth=0.99, relheight=0.69)
+
+        #self.tabela.delete(*self.tabela.get_children())
+        for i in Conexão().consultar():
+            self.tabela.insert('', 0, values=i)
+
 
 
 GerenciadorTarefas()

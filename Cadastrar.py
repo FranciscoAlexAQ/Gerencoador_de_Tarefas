@@ -1,6 +1,6 @@
 from tkinter import Tk, Menu, Label, Entry, Button
 from tkcalendar import Calendar
-
+import CRUD
 
 class Cadastrar:
     def __init__(self):
@@ -57,9 +57,11 @@ class Cadastrar:
         self.calendario.place(relx=0.62, rely=0.1)
     
     def criarBotões(self):
-        self.Button = Button(self.janela, text='Salvar Data')
-        self.Button.place(relx=0.62, rely=0.57, relheight=0.08, relwidth=0.36)
-
+        self.Button = Button(self.janela, text='Cadastrar Tarefa', 
+                                command=lambda:CRUD.Conexão().cadastrar(self.entryNome.get(), 
+                                self.entryDisciplina.get(), self.entryProfessor.get(), 
+                                self.entryCalendario.get()))
+        self.Button.place(relx=0.15, rely=0.59, relheight=0.08, relwidth=0.36)
 
 
 if __name__ == '__main__':

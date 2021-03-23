@@ -20,7 +20,7 @@ class Sobre:
                                              foi desenvolvido 
                                             por Francisco Alex
                                                 Técnico em Informática     
-                                            ''', font=('Arial bold', 15), fg='red')
+                                            ''', font=('Arial bold', 15), fg='#363636')
         self.titulo.place(relx=-0.8, rely=0.2)
                                         
 

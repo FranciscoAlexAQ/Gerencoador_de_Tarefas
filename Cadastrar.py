@@ -30,7 +30,7 @@ class Cadastrar:
         self.calendario = Label(self.janela, text='Data de entrega', font=('Arial bold', 12))
         self.calendario.place(relx=0.05, rely=0.5)
 
-        self.titulo = Label(self.janela, text='CADASTRO', font=('Arial bold', 20), fg='red')
+        self.titulo = Label(self.janela, text='CADASTRO', font=('Arial bold', 20), fg='#363636')
         self.titulo.place(relx=0.23, rely=0.05)
 
         self.obs = Label(self.janela, text='''
@@ -57,12 +57,17 @@ class Cadastrar:
         self.calendario.place(relx=0.62, rely=0.1)
     
     def criarBotões(self):
-        self.Button = Button(self.janela, text='Cadastrar Tarefa', 
+        self.Button = Button(self.janela, text='CADASTRAR TAREFA', font=('Arial bold', 10),
+                                bg='white',
                                 command=lambda:CRUD.Conexão().cadastrar(self.entryNome.get(), 
                                 self.entryDisciplina.get(), self.entryProfessor.get(), 
                                 self.entryCalendario.get()))
-        self.Button.place(relx=0.15, rely=0.59, relheight=0.08, relwidth=0.36)
+        self.Button.place(relx=0.05, rely=0.59, relheight=0.08, relwidth=0.53)
 
+
+        self.ButtonData = Button(self.janela, text='SALVAR DATA', font=('Arial bold', 10), 
+                                bg='white')
+        self.ButtonData.place(relx=0.62, rely=0.59, relheight=0.08, relwidth=0.36)
 
 if __name__ == '__main__':
     Cadastrar()
